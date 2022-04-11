@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Lab 4</title>
+    </head>
+    <body>
+        
+        </table> 
+        <hr/>
+        <form>
+            <table border="1px" cellpadding="10" cellspacing="0">
+                <tr>
+                    <th colspan="1">Date: <input type="date"></th>
+                    <th colspan="3">SALES BILL</th>
+                </tr>
+                <tr>
+                    <th colspan="2">Vender: <input type="text"></th>
+                    <th colspan="2">Shipping Address: <input type="text"></th>
+                </tr>
+                <tr>
+                    <th>Item Code</th>
+                    <th>Qty</th>
+                    <th>Price per unit</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <select>
+                            <option value="none">-Select code-</option>
+                            <option value="0000">0000</option>
+                            <option value="0001">0001</option>
+                            <option value="0002">0002</option>
+                            <option value="0003">0003</option>
+                        </select>
+                    </td>
+                    <td align="center">
+                        <input type="number" id="q1">
+                    </td>
+                    <td align="center"><input type="number" id="p1"></td>
+                    <td align="left"><span id="total1" align="center"></span></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <select>
+                            <option value="none">-Select code-</option>
+                            <option value="0000">0000</option>
+                            <option value="0001">0001</option>
+                            <option value="0002">0002</option>
+                            <option value="0003">0003</option>
+                        </select>
+                    </td>
+                    <td align="center">
+                        <input type="number" id="q2">
+                    </td>
+                    <td align="center"><input type="number" id="p2"></td>
+                    <td align="left"><span id="total2"></span></td>
+                </tr>
+                <tr>
+                    <th colspan="3" align="right">Sub Total: </th>
+                    <td><span id="subtotal"></span></td>
+                </tr>
+                <tr>
+                    <th colspan="4" align="right">Tax: <input type="number" id="tax"></th>
+                </tr>
+                <tr>
+                    <td colspan="3" align="right"><input type="button" value="total" onclick="calculate()"></td>
+                    <td><span id="result"></span></td>
+                </tr>
+            </table>
+        </form>
+        <script>
+              function calculate(){
+                  var q1=document.getElementById("q1").value;
+                  var p1=document.getElementById("p1").value;
+                  result1 = parseInt(q1) * parseInt(p1);
+                  document.getElementById("total1").innerHTML =result1;
+                  
+                  var q2=document.getElementById("q2").value;
+                  var p2=document.getElementById("p2").value;
+                  result2 = parseInt(q2) * parseInt(p2);
+                  document.getElementById("total2").innerHTML =result2;
+
+                  var subtotal = result1 + result2;
+                  document.getElementById("subtotal").innerHTML =subtotal;
+
+                  var tax=document.getElementById("tax").value;
+                  var result= ((parseInt(tax)/100)*subtotal)+subtotal;  
+                  document.getElementById("result").innerHTML =result;
+              }
+        </script>
+    </body>
+</html>
